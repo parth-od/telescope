@@ -8,6 +8,10 @@ const Routes = [
     path: "/suspense",
     title: "Suspense",
   },
+  {
+    path: "/transition",
+    title: "Transition"
+  }
 ];
 
 export default function NestedList() {

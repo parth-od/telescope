@@ -37,6 +37,13 @@ const router = createBrowserRouter([
           return { Component: Suspense };
         },
       },
+      {
+        path: "transition",
+        lazy: async () => {
+          let { Transition } = await import("./routes/transition");
+          return { Component: Transition };
+        },
+      }
     ],
   },
 ]);
