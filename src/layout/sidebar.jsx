@@ -11,6 +11,14 @@ const Routes = [
   {
     path: "/transition",
     title: "Transition"
+  },
+  // {
+  //   path: "/context-api",
+  //   title: "Context API"
+  // },
+  {
+    path: "/flexbox-grid",
+    title: "Flexbox & Grid"
   }
 ];
 

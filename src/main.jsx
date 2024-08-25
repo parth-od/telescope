@@ -5,15 +5,11 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./routes/root";
-import ErrorPage from "./error-page";
+import { RouterProvider } from "react-router-dom";
 import GlobalCssPriority from "./global-css-priority";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-// import { Suspense } from "./routes/suspense";
+import { router } from "./layout/router";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,31 +18,6 @@ const queryClient = new QueryClient({
     },
   },
 });
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "suspense",
-        // element: <Suspense />,
-        lazy: async () => {
-          let { Suspense } = await import("./routes/suspense");
-          return { Component: Suspense };
-        },
-      },
-      {
-        path: "transition",
-        lazy: async () => {
-          let { Transition } = await import("./routes/transition");
-          return { Component: Transition };
-        },
-      }
-    ],
-  },
-]);
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
